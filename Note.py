@@ -1,5 +1,5 @@
 from datetime import datetime
-import WorkinFile
+import uuid
 
 
 class Note:
@@ -37,4 +37,4 @@ class Note:
         return note.id + ';' + note.title + ';' + note.body + ';' + note.date
 
     def map_note(note):
-        return '\nID: ' + note.id + '\n' + 'Название заметки: ' + note.title + '\n' + 'Описание заметки: ' + note.body + '\n' + 'Дата публикации: ' + note.
+        return '\nID: ' + note.id + '\n' + 'Название заметки: ' + note.title + '\n' + 'Описание заметки: ' + note.body + '\n' + 'Дата публикации: ' + note.date

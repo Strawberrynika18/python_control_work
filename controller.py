@@ -1,7 +1,8 @@
 import WorkinFile
+import function
 
 
-def action_in_working():
+def run():
     input_from_user = ''
 
     while True:
@@ -25,5 +26,5 @@ def action_in_working():
             function.show('id')
             function.id_edit_del_show('show')
         elif input_from_user == '0':
-            WorkinFile.goodbuy()
+            WorkinFile.goodbye()
             break

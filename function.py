@@ -3,24 +3,24 @@ import WorkWithFile
 import Note
 
 
-number =int (input("Введите количество символов в тексте заметки"))
-
+#number =int (input("Введите количество символов в тексте заметки"))
+number =10
 
 def add(): 
     note = WorkinFile.create_note(number)
-    array = file_operation.read_file()
+    array = WorkWithFile.read_file()
     for notes in array:
 
         if Note.Note.get_id(note) == Note.Note.get_id(notes):
             Note.Note.set_id(note)
     array.append(note)
-    file_operation.write_file(array, 'a')
+    WorkWithFile.write_file(array, 'a')
     print('Добавление заметки прошло успешно')
 
 
 def show(text):
     logic = True
-    array = file_operation.read_file()
+    array = WorkWithFile.read_file()
 
     if text == 'date':
         date = input('Введите дату (формат dd.mm.yyyy): ')
@@ -42,14 +42,14 @@ def show(text):
 
 def id_edit_del_show(text):
     id = input('Введите id заметки: ')
-    array = file_operation.read_file()
+    array = WorkWithFile.read_file()
 
     logic = True
     for notes in array:
         if id == Note.Note.get_id(notes):
             logic = False
             if text == 'edit':
-                note = ui.create_note(number)
+                note = WorkinFile.create_note(number)
                 Note.Note.set_title(notes, note.get_title())
                 Note.Note.set_body(notes, note.get_body())
                 Note.Note.set_date(notes)
@@ -64,4 +64,4 @@ def id_edit_del_show(text):
 
     if logic == True:
         print('Нет такой заметки. проверьте правильность ввода')
-    file_operation.write_file(array, 'a')
+    WorkWithFile.write_file(array, 'a')
